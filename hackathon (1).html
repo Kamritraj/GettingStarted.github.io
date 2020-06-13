@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style type="text/css">
+body {
+  font-family: lato;
+background: url(https://images.unsplash.com/photo-1547906982-56341693c43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+background-size: cover; 
+ background-position: center;
+}
+form {border: 3px solid #f1f1f1;}
+
+div.a {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle }
+
+input[type=text], input[type=email], select {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size:20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+button {
+  background-color: grey;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a href="https://5edb351ad74d3.site123.me/" class="navbar-brand"><i class="fab fa-redhat"></i>Vocal For Local</a>
+        </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <ul class="nav navbar-nav">
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Goods</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Arts</a></li>
+            
+            <li><a href="#">Entertainment</a></li>
+            
+            <li><a href="#">Shop</a></li>
+            <li><a href="#"> contact us <i class="fas fa-heart"></i></a></li>
+          </ul>
+        </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#"> Sign up  <i class="fas fa-heart"></i></a></li>
+          <li class="active"><a href="#"> Login <i class="fas fa-heart"></i></a></li>
+        </ul>
+    </div>
+
+</div>
+</nav>
+
+
+
+
+
+<center><h1 style="color: grey">TASTE FOR MUSIC</h1></center>
+
+<div class="container">
+  <Div class="b">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="a">
+          <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off"> 
+          <input id="nameField" name="entry.2005620554" placeholder="Enter your name" type="text" required> 
+          <input id="emailField" name="entry.1045781291" placeholder="Enter your email" type="email" required> 
+          <input id="mobField" name="entry.1166974658" placeholder="Enter your 10 Digit Phone Number" type="text" pattern="^\d{10}$" required>  
+          <select id="cinema" name="entry.839337160" placeholder="Select Cinema" required>
+          <option value="">Which kind of music u want u listen..?</option>
+          <option value="1">EMOTIONAL</option>
+          <option value="2">HIPHOP</option>
+          <option value="3">ROCK MUSIC</option>
+          <option value="4">CLASSICAL</option> 
+          </select> 
+          <input id="artField" name="entry.263204057" placeholder="Enter your choice of ART" type="text" required> 
+          <button id="send" type="submit" class="common_btn">Register Now</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color: grey"> Your Request has been recorded</h3>
+
+
+
+<script>
+function postToGoogle() {
+                var field1 = $("#nameField").val();
+                var field2 = $("#emailField").val();
+                var field3 = $("#mobField").val();
+                var field4 = $("#cinema option:selected").text();
+ 				        var field5 = $("#artField").val();
+				if(field1 == ""){
+					alert('Please Fill Your Name');
+					document.getElementById("nameField").focus();
+					return false;
+				}
+				if(field2 == ""){
+					alert('Please Fill Your Email');
+					document.getElementById("emailField").focus();
+					return false;
+				}
+				if(field3 == "" || field3.length > 10 || field3.length < 10){
+					alert('Please Fill Your Mobile Number');
+					document.getElementById("mobField").focus();
+					return false;
+				}
+
+
+				
+	
+                $.ajax({
+                    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeOpkglU_RhDvl3j00DWCmCvK5XT4usaWvSm6UdOMYA0mchTQ/formResponse",
+					data: {"entry.2005620554": field1, "entry.1045781291": field2, "entry.1166974658": field3, "entry.839337160": field4, "entry.263204057": field5},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+					{
+					},
+					error: function(x, y, z)
+						{
+
+							$('#success-msg').show();
+							$('#form').hide();
+							
+						}
+                });
+				return false;
+            }
+</script>
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
